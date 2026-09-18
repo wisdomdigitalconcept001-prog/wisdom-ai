@@ -44,5 +44,5 @@ app.post("/api/generate",async(req,res)=>{
   res.json({image,provider});
  }catch(e){console.error(e);res.status(500).json({error:e.message||"Generation failed."})}
 });
-app.get("*",(_,res)=>res.sendFile(path.join(__dirname,"index.html")));
+app.get("/{*splat}",(_,res)=>res.sendFile(path.join(__dirname,"index.html")));
 app.listen(process.env.PORT||3000,()=>console.log("Wisdom AI running"));
