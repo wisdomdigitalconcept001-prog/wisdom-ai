@@ -43,11 +43,16 @@ Create an ORIGINAL professional social-media/business graphic.
 User request:
 ${prompt}
 
+The user's requested subject must be followed EXACTLY.
+Do not replace, reinterpret, or substitute the requested subject with a different product, service, food, event, or business.
+
+If the user requests barbecue, the visual must clearly show barbecue/grilled food such as grilled meat, barbecue skewers, a grill, smoke, or other unmistakable barbecue elements.
+If the user requests a specific product or service, show visuals directly related to that exact product or service.
+
 Make the design modern, clean, professional, and visually attractive.
 Use strong typography, good spacing, clear visual hierarchy, and a polished composition.
-Use realistic photography when appropriate.
-Avoid outdated flyer styles and generic AI-looking templates.
-
+Use realistic photography that matches the exact subject when appropriate.
+Avoid unrelated stock images and generic AI-looking templates.
 Use current design trends as inspiration, but do not copy any specific Pinterest design, image, logo, or artwork.
 
 Pinterest trend information:
