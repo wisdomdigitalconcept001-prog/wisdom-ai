@@ -37,8 +37,27 @@ app.post("/api/generate",async(req,res)=>{
   const {prompt,format="4:5",provider="openai"}=req.body||{};
   if(!prompt?.trim())return res.status(400).json({error:"Please describe the design."});
   const t=await trends(prompt);
-  const p=`Create an ORIGINAL professional social-media/business graphic. Never copy a specific Pinterest pin, artwork, logo, or person's design. Pinterest is only a private trend signal and must never be shown or mentioned inside the design. Make it look like a current professional human-designed flyer with realistic photography when appropriate, strong hierarchy, sophisticated typography, intentional spacing, premium composition, and no generic AI template look. Format ${format}. User brief: ${prompt}. ${t}`;
-  let image;
+const p = `
+Create an ORIGINAL professional social-media/business graphic.
+
+User request:
+${prompt}
+
+Make the design modern, clean, professional, and visually attractive.
+Use strong typography, good spacing, clear visual hierarchy, and a polished composition.
+Use realistic photography when appropriate.
+Avoid outdated flyer styles and generic AI-looking templates.
+
+Use current design trends as inspiration, but do not copy any specific Pinterest design, image, logo, or artwork.
+
+Pinterest trend information:
+${t}
+
+The final design must be original.
+Do not mention Pinterest in the design.
+
+Format: ${format}
+`;    let image;
   if(provider==="openai"){if(!process.env.OPENAI_API_KEY)throw Error("OpenAI is not configured.");image=await openai(p,format)}
   else {if(!process.env.HF_TOKEN)throw Error("Open-source AI is not configured. Add HF_TOKEN on the server.");image=await hf(p)}
   res.json({image,provider});
