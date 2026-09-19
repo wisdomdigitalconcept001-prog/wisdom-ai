@@ -34,7 +34,7 @@ async function trends(q){
 app.post("/api/generate",async(req,res)=>{
  try{
   if(!phone(req))return res.status(403).json({error:"Wisdom AI is phone-only. Open it from a phone."});
-  const {prompt,format="4:5",provider="open-source"}=req.body||{};
+  const {prompt,format="4:5",provider="openai"}=req.body||{};
   if(!prompt?.trim())return res.status(400).json({error:"Please describe the design."});
   const t=await trends(prompt);
   const p=`Create an ORIGINAL professional social-media/business graphic. Never copy a specific Pinterest pin, artwork, logo, or person's design. Pinterest is only a private trend signal and must never be shown or mentioned inside the design. Make it look like a current professional human-designed flyer with realistic photography when appropriate, strong hierarchy, sophisticated typography, intentional spacing, premium composition, and no generic AI template look. Format ${format}. User brief: ${prompt}. ${t}`;
